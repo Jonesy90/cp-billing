@@ -21,6 +21,12 @@ csv_upload = args.source_file
 
 
 def add_csv():
+    """
+    Takes a CSV to commit to a SQLite Database.
+    Checks each data is within a current database. If so, it will ignore and move on. Otherwise, it will commit to the DB.
+
+    """
+
     with open(csv_upload, newline='') as csvfile:
         data = csv.DictReader(csvfile)
         for row in data:
@@ -43,13 +49,18 @@ def add_csv():
                 session.commit()
 
 def calculate():
+    """
+    Calculates the split between Virgin Media and the Content Provider and places them all into a database.
+    
+    """
+
     try:
         for _, value in ALL_CONTENT_PROVIDERS.items():
             for key, value in value.items():
                 print(f'Key: {key}')
                 print(f'Value: {value}')
                 database = session.query(ContentProvider).filter(ContentProvider.content_provider==key)
-                print(f'Database == {database}')
+                # print(f'Database == {database}')
                 for data in database:
                     campaign_external_id = data.campaign_external_id
                     campaign_name = data.campaign_name
@@ -88,6 +99,11 @@ def calculate():
         print(f'TYPEERROR: CP: {data.content_provider}, ID: {data.id}, Gross Revenue: {data.gross_revenue}, Net Revenue:{data.net_revenue}')
 
 def create_workbook(data, key):
+    """
+    Creates an Excel Workbook for each Content Provider group.
+    Generate a formatting for the Excel documents for both sheets.
+
+    """
     workbook = xlsxwriter.Workbook(f'excel/{key}.xlsx')
     worksheet1 = workbook.add_worksheet('Ad-VoD Statement')
     worksheet2 = workbook.add_worksheet('Detailed Report')
@@ -180,6 +196,10 @@ def create_workbook(data, key):
 
 
 def download_csv(content_provider):
+    """
+    Generates a CSV file for each Content Provider group.
+
+    """
     with open(f'csv/{content_provider}.csv', 'w') as csvfile:
         headers = ['Campaign External ID', 'Campaign Name', 'Content Provider', 'Delivered Impressions', 'CPM Rate', 'Gross Revenue', 'Net Revenue', 'VM Revenue Share', 'CP Revenue Share']
         backup = csv.DictWriter(csvfile, fieldnames=headers)
@@ -190,18 +210,20 @@ def download_csv(content_provider):
                 'Gross Revenue': product.gross_revenue, 'Net Revenue': product.net_revenue, 'VM Revenue Share': product.vm_revenue_share,  'CP Revenue Share': product.cp_revenue_share})
 
 
-def create_pdf(content_provider_group):
-    headings = ['Campaign External ID', 'Content Provider', 'Campaign Name', 'Delivered Impressions', 'CPM Rate', 'Gross Revenue', 'Net Revenue', 'VM Revenue Share', 'CP Revenue Share']
-    data_list = list(content_provider_group)
-    print(f'HEADERS: {headings}')
-    print(f'DATA LIST: {data_list}')
-
-
 def delete_table():
+    """
+    Delete the table each time a Content Group has sucessfully outputted a CSV and Excel file.
+    Tables are deleted multiple times until all Content Provider Groups reports (CSV and Excel) are completed.
+
+    """
     session.query(CpBilling).delete()
     session.commit()
 
 def delete_main_table():
+    """
+    Delete the main table once all tasks are complete.
+
+    """
     session.query(ContentProvider).delete()
     session.commit()
 
