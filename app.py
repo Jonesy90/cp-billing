@@ -1,4 +1,5 @@
 #Internal Import
+import datetime
 from models import *
 from content_providers import *
 
@@ -16,6 +17,13 @@ args = parser.parse_args()
 
 csv_upload = args.source_file
 
+today = datetime.date.today()
+first = today.replace(day=1)
+last_month = first - datetime.timedelta(days=1)
+
+print(f'Today: {today}')
+print(f'First: {first}')
+print(f'Last Month: {last_month}')
 
 def add_csv():
     """
@@ -55,8 +63,8 @@ def calculate():
     try:
         for _, value in ALL_CONTENT_PROVIDERS.items():
             for key, value in value.items():
-                print(f'Key: {key}')
-                print(f'Value: {value}')
+                # print(f'Key: {key}')
+                # print(f'Value: {value}')
                 database = session.query(ContentProvider).filter(ContentProvider.content_provider==key)
                 # print(f'Database == {database}')
                 for data in database:
@@ -131,6 +139,7 @@ def create_workbook(data, key):
         'text_wrap': True
     })
     worksheet1.set_column(1, 6, 32.00)
+    date_format = workbook.add_format({'num_format': 'mmmm yyyy'})
 
 
     #Worksheet2 Formatting
@@ -151,6 +160,7 @@ def create_workbook(data, key):
     worksheet1.write('E23', 'Revenue Share to VM', cell_background_colour)
     worksheet1.write('F23', f'Revenue Share to {key}', cell_background_colour)
 
+    worksheet1.write('B24', last_month, date_format)
     worksheet1.write_formula('C24', "='Detailed Report'!E8", impressions_format2)
     worksheet1.write_formula('D24', "='Detailed Report'!H8", currency_format2)
     worksheet1.write_formula('E24', "='Detailed Report'!I8", currency_format2)
