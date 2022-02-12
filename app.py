@@ -45,6 +45,7 @@ def add_csv():
                 session.add(new_data)
                 session.commit()
 
+ 
 def calculate():
     """
     Calculates the split between Virgin Media and the Content Provider and places them all into a database.
@@ -94,6 +95,7 @@ def calculate():
         delete_main_table()
     except TypeError:
         print(f'TYPEERROR: CP: {data.content_provider}, ID: {data.id}, Gross Revenue: {data.gross_revenue}, Net Revenue:{data.net_revenue}')
+
 
 def create_workbook(data, key):
     """
@@ -215,6 +217,7 @@ def delete_table():
     """
     session.query(CpBilling).delete()
     session.commit()
+
 
 def delete_main_table():
     """
