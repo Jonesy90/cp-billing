@@ -7,5 +7,5 @@ group. These documents will contain the revenue split between VM and the content
 
 RUNNING APPLICATION:
 
-python3 app.py <CSV-FILE-LOCATION>
+python3 app.py #CSV-FILE-LOCATION#
 
