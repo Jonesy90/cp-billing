@@ -21,10 +21,6 @@ today = datetime.date.today()
 first = today.replace(day=1)
 last_month = first - datetime.timedelta(days=1)
 
-print(f'Today: {today}')
-print(f'First: {first}')
-print(f'Last Month: {last_month}')
-
 def add_csv():
     """
     Takes a CSV to commit to a SQLite Database.
