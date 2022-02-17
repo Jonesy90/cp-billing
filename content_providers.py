@@ -21,10 +21,10 @@ ALL_CONTENT_PROVIDERS = {
     },
 
     'HIT_CPS' : {
-            'HIT': 0.1,
-            'HIT Plus': 0.1,
-            'HIT Playlist': 0.1,
-            'HIT Plus Playlist': 0.1,
+            'HIT': 1,
+            'HIT Plus': 1,
+            'HIT Playlist': 1,
+            'HIT Plus Playlist': 1,
     },
 
     'NATGEO_CPS' : {
@@ -68,20 +68,20 @@ ALL_CONTENT_PROVIDERS = {
     },
 
     'DHX_CPS' : {
-        'DHX': 0.1,
-        'DHX Plus': 0.1,
-        'DHX Playlist': 0.1,
-        'DHX Plus Playlist': 0.1
+        'DHX': 1,
+        'DHX Plus': 1,
+        'DHX Playlist': 1,
+        'DHX Plus Playlist': 1
     },
 
     'CAKE_CPS' : {
-        'Cake Entertainment': 0.1,
-        'Cake Kids': 0.1,
-        'Cake Playlist': 0.1
+        'Cake Entertainment': 1,
+        'Cake Kids': 1,
+        'Cake Playlist': 1
     },
 
     'PGS_CPS' : {
-        'PGS': 0.1
+        'PGS': 1
     },
 
     'POP_CPS' : {
@@ -90,27 +90,27 @@ ALL_CONTENT_PROVIDERS = {
     },
 
     'ZOOMOO_CPS' : {
-        'ZooMoo': 0.1
+        'ZooMoo': 1
     },
 
     'JETPACK_CPS' : {
-        'Jetpack': 0.1
+        'Jetpack': 1
     },
 
     'BOATROCKER_CPS' : {
-        'Boatrocker': 0.1
+        'Boatrocker': 1
     },
 
     'MOONBUG_CPS' : {
-        'Moonbug': 0.1
+        'Moonbug': 1
     },
 
     'TASTEMADE_CPS' : {
-        'Tastemade': 0.1
+        'Tastemade': 1
     },
 
     'NINESTORY_CPS' : {
-        '9Story': 0.1
+        '9Story': 1
     }
 }
 

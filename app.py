@@ -72,7 +72,10 @@ def calculate():
                     gross_revenue = data.gross_revenue
                     net_revenue = data.net_revenue
                     vm_revenue_share = (data.net_revenue * value)
-                    cp_revenue_share = data.net_revenue - vm_revenue_share
+                    if value == 0.1:
+                        cp_revenue_share = 0
+                    else:
+                        cp_revenue_share = data.net_revenue - vm_revenue_share
 
                     new_data = CpBilling(campaign_external_id=campaign_external_id, campaign_name=campaign_name, content_provider=content_provider, 
                         delivered_impressions=delivered_impressions, cpm_rate=cpm_rate, gross_revenue=gross_revenue, net_revenue=net_revenue,
