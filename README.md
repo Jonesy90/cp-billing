@@ -12,6 +12,20 @@ group. These documents will contain the revenue split between VM and the content
 <img width="954" alt="Screenshot 2022-02-18 at 09 20 09" src="https://user-images.githubusercontent.com/4954209/154654507-72e7fc00-678b-4b59-84cd-af1220744c25.png">
 2. Two groups of files are returned (CSV and formatted Excel documents).
 
+## Expected Output
+Each 'Content Provider Group' (within content_provider.py) would have it's own CSV and Excel file.
+
+E.g. CSV File
+<img width="1403" alt="Screenshot 2022-02-20 at 13 53 33" src="https://user-images.githubusercontent.com/4954209/154845997-9b42080b-4d81-444f-88fa-47f099f129ed.png">
+
+E.g. Excel File
+Ad-VoD Statement Tab:
+<img width="1333" alt="Screenshot 2022-02-20 at 13 54 33" src="https://user-images.githubusercontent.com/4954209/154846066-6780d59a-abc7-4bf8-b83b-2475853a66fb.png">
+Detailed Report Tab:
+<img width="1112" alt="Screenshot 2022-02-20 at 13 55 24" src="https://user-images.githubusercontent.com/4954209/154846104-69b4b7ef-be83-4200-a355-bb911510429c.png">
+
+
+
 
 ## Development Setup & Running Application
 
