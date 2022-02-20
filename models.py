@@ -1,4 +1,4 @@
-gifrom ast import In
+# from ast import In
 from sqlalchemy import create_engine, Column, String, Integer, Float
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
