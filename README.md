@@ -21,7 +21,9 @@ E.g. CSV File
 E.g. Excel File
 Ad-VoD Statement Tab:
 <img width="1333" alt="Screenshot 2022-02-20 at 13 54 33" src="https://user-images.githubusercontent.com/4954209/154846066-6780d59a-abc7-4bf8-b83b-2475853a66fb.png">
-Detailed Report Tab:
+
+
+E.g. Detailed Report Tab:
 <img width="1112" alt="Screenshot 2022-02-20 at 13 55 24" src="https://user-images.githubusercontent.com/4954209/154846104-69b4b7ef-be83-4200-a355-bb911510429c.png">
 
 
